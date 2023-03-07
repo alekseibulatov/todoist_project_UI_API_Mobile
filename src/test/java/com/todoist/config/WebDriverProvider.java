@@ -3,6 +3,7 @@ package com.todoist.config;
 
 import com.codeborne.selenide.Configuration;
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -26,15 +27,19 @@ public class WebDriverProvider {
                     "enableVNC", true,
                     "enableVideo", true
             ));
-            //Configuration.browserCapabilities = capabilities;
-            Configuration.browserCapabilities = new ChromeOptions()
-                    .addArguments("--no-sandbox")
-                    .addArguments("--disable-infobars")
-                    .addArguments("--disable-popup-blocking")
-                    .addArguments("--disable-notifications")
-                    .addArguments("--lang=ru_RU.UTF-8")
-                    .setExperimentalOption("excludeSwitches", new String[]{"enable-automation"})
-                    .merge(capabilities);
+          //  Configuration.browserCapabilities = capabilities;
+            setChromeOptions(capabilities);
         }
+
+    }
+    public static void setChromeOptions(MutableCapabilities capabilities) {
+        Configuration.browserCapabilities = new ChromeOptions()
+                .addArguments("--no-sandbox")
+                .addArguments("--disable-infobars")
+                .addArguments("--disable-popup-blocking")
+                .addArguments("--disable-notifications")
+                .addArguments("--lang=en-ru")
+                .setExperimentalOption("excludeSwitches", new String[]{"enable-automation"})
+                .merge(capabilities);
     }
 }
