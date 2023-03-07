@@ -32,7 +32,7 @@ public class WebDriverProvider {
                     .addArguments("--disable-infobars")
                     .addArguments("--disable-popup-blocking")
                     .addArguments("--disable-notifications")
-                    .addArguments("--lang=RU")
+                    .addArguments("--lang=RU.UTF-8")
                     .setExperimentalOption("excludeSwitches", new String[]{"enable-automation"})
                     .merge(capabilities);
         }
