@@ -19,7 +19,7 @@ public interface WebDriverConfig extends Config {
     String getBrowser();
 
     @Key("browserVersion")
-    @DefaultValue("110.0")
+    @DefaultValue("100.0")
     String browserVersion();
 
     @Key("selenoidUrl")
