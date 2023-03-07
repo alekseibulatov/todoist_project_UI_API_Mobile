@@ -3,6 +3,7 @@ package com.todoist.config;
 
 import com.codeborne.selenide.Configuration;
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
@@ -25,7 +26,15 @@ public class WebDriverProvider {
                     "enableVNC", true,
                     "enableVideo", true
             ));
-            Configuration.browserCapabilities = capabilities;
+            //Configuration.browserCapabilities = capabilities;
+            Configuration.browserCapabilities = new ChromeOptions()
+                    .addArguments("--no-sandbox")
+                    .addArguments("--disable-infobars")
+                    .addArguments("--disable-popup-blocking")
+                    .addArguments("--disable-notifications")
+                    .addArguments("--lang=ru-ru")
+                    .setExperimentalOption("excludeSwitches", new String[]{"enable-automation"})
+                    .merge(capabilities);
         }
     }
 }
