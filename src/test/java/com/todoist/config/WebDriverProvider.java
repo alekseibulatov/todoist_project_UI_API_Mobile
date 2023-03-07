@@ -19,16 +19,25 @@ public class WebDriverProvider {
         Configuration.browser = config.getBrowser();
         Configuration.browserVersion = config.browserVersion();
         Configuration.reportsUrl = config.videoUrl();
+        MutableCapabilities capabilities = new DesiredCapabilities();
         if (config.isRemote()) {
             Configuration.remote = config.getSelenoidUrl();
 
-            DesiredCapabilities capabilities = new DesiredCapabilities();
+           // DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                     "enableVNC", true,
                     "enableVideo", true
             ));
           //  Configuration.browserCapabilities = capabilities;
-            setChromeOptions(capabilities);
+            //setChromeOptions(capabilities);
+        }
+        switch (config.getBrowser()) {
+            case "chrome":
+                setChromeOptions(capabilities);
+                break;
+
+            default:
+                Configuration.browserCapabilities = capabilities;
         }
 
     }
