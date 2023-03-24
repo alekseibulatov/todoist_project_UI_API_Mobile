@@ -13,7 +13,7 @@ import java.util.List;
 public class ListResponseAllProjectsModel {
 
 
-    private ArrayList<ProjectsModel> list;
+    private List<ProjectsModel> list;
 
 }
 
