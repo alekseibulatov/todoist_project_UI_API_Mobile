@@ -1,6 +1,7 @@
 package com.todoist.tests.api.tests;
 
 import com.todoist.tests.api.models.ListResponseAllProjectsModel;
+import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
@@ -31,7 +32,8 @@ public class ApiTests {
                 .spec(responseSpecification(200))
                 .extract()
                 .body()
-                .as(ListResponseAllProjectsModel.class);
+                .as(new TypeRef<ListResponseAllProjectsModel> () {
+                });
 
         String a = authorization.getList().get(0).getId();
         assertThat(a, is("2309139947"));
