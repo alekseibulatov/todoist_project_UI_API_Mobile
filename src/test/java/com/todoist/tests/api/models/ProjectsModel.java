@@ -32,7 +32,7 @@ public class ProjectsModel {
 
     @JsonIgnore
     @JsonProperty("is_inbox_project")
-    private Boolean isInboxProject;
+    private String isInboxProject;
 
     @JsonProperty("is_team_inbox")
     private Boolean isTeamInbox;
