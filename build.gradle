@@ -58,6 +58,18 @@ dependencies {
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.2')
 }
 
+task ui(type: Test) {
+    useJUnitPlatform {
+        includeTags("ui")
+    }
+}
+
+task api(type: Test) {
+    useJUnitPlatform {
+        includeTags("api")
+    }
+}
+
 test {
     useJUnitPlatform()
 }

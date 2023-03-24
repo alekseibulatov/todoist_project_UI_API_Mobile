@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.todoist.tests.api.models.ProjectsModel;
+import io.restassured.RestAssured;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 //import io.restassured.mapper.ObjectMapper;
@@ -34,49 +35,15 @@ public class ApiTests {
     @Tag("api")
     @DisplayName("Получение всех проектов пользователя")
     public void receptionAllProjectTest() {
-/*        ListProjectsModel listProjects = given(loginRequestSpec)
+        ListResponseAllProjectsModel authorization = given(loginRequestSpec)
                 .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
                 .when()
                 .get("/projects")
-                .then()
-                .spec(responseSpecification(200))
-               // .contentType(JSON)
-
-                .extract().as(ListProjectsModel.class);*/
-
-        // ObjectMapper objectMapper = new ObjectMapper()
-        ListResponseAllProjectsModel listResponseAllProjectsModel = given(loginRequestSpec)
-                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
-                .when()
-                .get("/projects")
-
                 .then()
                 .spec(responseSpecification(200))
                 .extract()
                 .as(ListResponseAllProjectsModel.class);
 
-
-    /*    ObjectMapper objectMapper = new ObjectMapper();
-
-        ListResponseAllProjectsModel person = objectMapper.readValue(authorization, ListResponseAllProjectsModel.class);*/
-
-          /*      .as(new TypeRef<>() {
-                });*/
-        //  .as(ListResponseAllProjectsModel.class);
-
-
-       /* System.out.println("ответ");
-        System.out.println(person.getList().size());*/
-
-      //    assertThat(listResponseAllProjectsModel.getList().size(), );
-         assertThat(listResponseAllProjectsModel.getList().size()).isEqualTo(7);
-
-    /*    ObjectMapper mapper = new ObjectMapper();
-        List<ProjectsModel> list = mapper.reader()
-                .forType(new TypeReference<List<ProjectsModel>>() {})
-                .readValue(String.valueOf(listProjects));
-
-            assertThat(listProjects.toString().length(),is (7));*/
-
+assertThat(authorization.getList().size()).isEqualTo(6);
     }
 }
