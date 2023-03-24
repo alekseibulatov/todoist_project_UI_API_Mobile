@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static com.todoist.tests.api.specs.LoginSpecs.loginRequestSpec;
 import static com.todoist.tests.api.specs.LoginSpecs.responseSpecification;
 import static io.restassured.RestAssured.given;
@@ -21,16 +23,17 @@ public class ApiTests {
     @Tag("api")
     @DisplayName("Получение всех проектов пользователя")
     public void receptionAllProjectTest() {
-        Response authorization = given(loginRequestSpec)
+        ListResponseAllProjectsModel authorization = given(loginRequestSpec)
                 .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
                 .when()
                 .get("/projects")
                 .then()
                 .spec(responseSpecification(200))
                 .extract()
-                .response();
+                .body()
+                .as(ListResponseAllProjectsModel.class);
 
-        int a = authorization.body().as(ListResponseAllProjectsModel.class).getList().size();
+        int a = authorization.getList().size();
         assertThat(a, is(6));
     }
 }
