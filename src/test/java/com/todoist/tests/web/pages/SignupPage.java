@@ -12,7 +12,7 @@ public class SignupPage {
 
     private SelenideElement headerSignupPage = $("._71a1610c");
 
-    @Step("Проверяем открытие страницы Auth при клике на кнопку Начать бесплатно")
+    @Step("Проверяем открытие страницы Auth при клике на кнопку 'Начать бесплатно'")
     public SignupPage verificationOpenSignupPage() {
         headerSignupPage.shouldHave(text(headerTextSignupPage));
 

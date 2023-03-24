@@ -2,6 +2,7 @@ package com.todoist.tests.web.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.todoist.config.CredentialsConfig;
 import com.todoist.config.WebDriverProvider;
 import com.todoist.helpers.Attach;
 import com.todoist.tests.web.pages.LoginPage;
@@ -9,23 +10,26 @@ import com.todoist.tests.web.pages.MainPage;
 import com.todoist.tests.web.pages.SignupPage;
 import com.todoist.tests.web.pages.TodayPage;
 import io.qameta.allure.Step;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import io.qameta.allure.selenide.AllureSelenide;
 
 public class WebTestBase {
+
+    static CredentialsConfig credentialsConfig = ConfigFactory.create(CredentialsConfig.class);
 
     MainPage mainPage = new MainPage();
     LoginPage loginPage = new LoginPage();
     SignupPage signupPage = new SignupPage();
     TodayPage todayPage = new TodayPage();
 
-    @Step("Настройки запуска")
+    @Step("Выполняем настройку запуска")
     @BeforeAll
     static void beforeAll() {
         WebDriverProvider.config();
-        Configuration.pageLoadTimeout = 45000;
+        Configuration.pageLoadTimeout = 15000;
     }
 
     @BeforeEach

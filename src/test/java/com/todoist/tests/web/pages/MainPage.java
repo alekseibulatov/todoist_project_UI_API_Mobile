@@ -19,14 +19,14 @@ public class MainPage {
             headerButton = $$(".yJmXDmy7f2C2dFexmqOR"),
             headerButtonAuth = $$(".cdc4_xoyu5lt350lFjqA");
 
-   @Step("Открываем главную страницу сайта https://todoist.com/ru")
+    @Step("Открываем главную страницу сайта https://todoist.com")
     public MainPage openPage() {
-        open("/ru");
+        open("");
 
         return this;
     }
 
-    @Step("Проверяем загрузку главной страницы")
+    @Step("Проверяем загрузку  главной страницы")
     public MainPage verificationMainPage() {
         headerMainPage.shouldHave(text(headerTextMainPage));
 
@@ -40,13 +40,13 @@ public class MainPage {
         headerButton.get(2).shouldHave(text(businessButton));
         headerButton.get(3).shouldHave(text(resourcesButton));
         headerButton.get(9).shouldHave(text(priceButton));
-        headerButton.get(10).shouldHave(text(exitButton));
+        headerButton.get(10).shouldHave(text(entranceButton));
         headerButtonAuth.get(0).shouldHave(text(signUpButton));
 
         return this;
     }
 
-    @Step("Проверяем открытие  страницы с Тарифами при клике на кнопку Тарифы")
+    @Step("Проверяем открытие  страницы с Тарифами при клике на кнопку 'Тарифы'")
     public MainPage openPricingPage() {
         headerButton.get(9).click();
         headingPricePage.shouldHave(text(titlePricePage));
@@ -54,14 +54,14 @@ public class MainPage {
         return this;
     }
 
-    @Step("Кликаем  на кнопку Войти")
+    @Step("Кликаем  на кнопку 'Войти'")
     public MainPage openLoginPage() {
         headerButton.get(10).click();
 
         return this;
     }
 
-    @Step("Кликаем на кнопку Начать бесплатно")
+    @Step("Кликаем на кнопку 'Начать бесплатно'")
     public MainPage openSignupPage() {
         headerButtonAuth.get(0).click();
 

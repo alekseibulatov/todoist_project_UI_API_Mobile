@@ -29,19 +29,33 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
 dependencies {
     testImplementation (
-            'org.junit.jupiter:junit-jupiter:5.9.1',
+            'org.junit.jupiter:junit-jupiter:5.9.2',
             'io.rest-assured:rest-assured:5.3.0',
-            'com.codeborne:selenide:6.11.0',
+            'com.codeborne:selenide:6.12.2',
             'com.fasterxml.jackson.core:jackson-databind:2.14.1',
             'org.slf4j:slf4j-simple:2.0.6',
             'io.qameta.allure:allure-rest-assured:2.20.1',
-            'io.qameta.allure:allure-selenide:2.20.1',
-            'io.github.bonigarcia:webdrivermanager:5.2.1',
+            'io.qameta.allure:allure-selenide:2.21.0',
+            'io.github.bonigarcia:webdrivermanager:5.3.2',
             'org.aeonbits.owner:owner:1.0.4',
+            'org.assertj:assertj-core:3.24.2',
             'org.jsoup:jsoup:1.15.3'
     )
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.2')
 }
 
 test {

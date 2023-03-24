@@ -3,9 +3,9 @@ package com.todoist.tests.web.tests;
 public class WebTestData {
 
     public static String
-            exitButton = "Войти",
+            entranceButton = "Войти",
             featuresButton = "Возможности",
-            exitGoogle = "Вход",
+            entranceGoogle = "Вход",
             attentionText = "Пожалуйста, введите действующий Email-адрес.",
             headerTextMainPage = "Организуйте  работу и жизнь.",
             templatesButton = "Шаблоны",
@@ -15,5 +15,7 @@ public class WebTestData {
             signUpButton = "Начать бесплатно",
             titlePricePage = "“Todoist – таск-менеджер номер один”– PC Mag",
             headerTextSignupPage = "Регистрация",
-            headerTextTodayPage = "Сегодня";
+            headerTextTodayPage = "Сегодня",
+            exitLoginButton = "Выйти",
+            captionDateButton = "Не менять";
 }
