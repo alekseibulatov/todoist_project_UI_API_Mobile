@@ -33,7 +33,7 @@ public class ApiTests {
                 .body()
                 .as(ListResponseAllProjectsModel.class);
 
-        int a = authorization.getList().size();
-        assertThat(a, is(6));
+        String a = authorization.getList().get(0).getId();
+        assertThat(a, is("2309139947"));
     }
 }
