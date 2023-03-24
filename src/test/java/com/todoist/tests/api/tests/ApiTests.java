@@ -1,20 +1,16 @@
 package com.todoist.tests.api.tests;
 
 import com.todoist.tests.api.models.ListResponseAllProjectsModel;
-import io.restassured.common.mapper.TypeRef;
-import io.restassured.response.Response;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static com.todoist.tests.api.specs.LoginSpecs.loginRequestSpec;
 import static com.todoist.tests.api.specs.LoginSpecs.responseSpecification;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 
 public class ApiTests {
@@ -31,11 +27,11 @@ public class ApiTests {
                 .then()
                 .spec(responseSpecification(200))
                 .extract()
-                .body()
-                .as(new TypeRef<ListResponseAllProjectsModel> () {
-                });
+                .response()
+                .as(ListResponseAllProjectsModel.class);
 
-        String a = authorization.getList().get(0).getId();
+
+        String a = authorization.getArrayList().get(0).getId();
         assertThat(a, is("2309139947"));
     }
 }
