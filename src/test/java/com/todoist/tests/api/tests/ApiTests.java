@@ -1,6 +1,8 @@
 package com.todoist.tests.api.tests;
 
+import com.todoist.tests.api.models.CreateNewProjectModel;
 import com.todoist.tests.api.models.ListResponseAllProjectsModel;
+import com.todoist.tests.api.models.ProjectsModel;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -33,5 +35,27 @@ public class ApiTests {
 
         String a = authorization.getArrayList().get(0).getId();
         assertThat(a, is("2309139947"));
+    }
+
+
+    @Test
+    @Tag("api")
+    public void addNewProjectTest() {
+        CreateNewProjectModel newProjectModel = new CreateNewProjectModel();
+        newProjectModel.setName("QA.GURU");
+
+        ProjectsModel newProject = given(loginRequestSpec)
+                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                .body(newProjectModel)
+                .when()
+                .post("/projects")
+                .then()
+                .spec(responseSpecification(200))
+                .extract()
+                .as(ProjectsModel.class);
+
+        assertThat(newProject.getName(), is("QA.GURU"));
+        assertThat(newProject.getOrder(), is(7));
+
     }
 }
