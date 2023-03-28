@@ -40,6 +40,7 @@ public class ApiTests {
 
     @Test
     @Tag("api")
+    @DisplayName("Добавление нового проекта")
     public void addNewProjectTest() {
         CreateNewProjectModel newProjectModel = new CreateNewProjectModel();
         newProjectModel.setName("QA.GURU");
@@ -56,6 +57,17 @@ public class ApiTests {
 
         assertThat(newProject.getName(), is("QA.GURU"));
         assertThat(newProject.getOrder(), is(7));
+    }
 
+    @Test
+    @Tag("api")
+    @DisplayName("Удаление   проекта Shopping из списка проектов")
+    public void deleteProjectTest() {
+        given(loginRequestSpec)
+                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                .when()
+                .delete("/projects/2309199795")
+                .then()
+                .spec(responseSpecification(204));
     }
 }

@@ -25,7 +25,7 @@ public class LoginSpecs {
         return new ResponseSpecBuilder()
                 .log(ALL)
                 .expectStatusCode(status)
-                .build()
-                .contentType(JSON);
+                .build();
+
     }
 }
