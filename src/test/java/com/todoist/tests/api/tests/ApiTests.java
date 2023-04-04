@@ -93,6 +93,8 @@ public class ApiTests {
     }
 
     @Test
+    @Tag("api")
+    @DisplayName("Удаление новой задачи в проект 'TestProject'")
     public void closingTaskInProject() {
         CreateNewTaskToProject createNewTaskToProject = new CreateNewTaskToProject();
         createNewTaskToProject.setContent("Тестовая задача для удаления");
