@@ -18,7 +18,7 @@ public class ProjectsModel {
 
     private String id;
 
-    @JsonProperty("  parent_id")
+    @JsonProperty("parent_id")
     private String parentId;
 
     private Integer order;
@@ -27,24 +27,24 @@ public class ProjectsModel {
 
     private String name;
 
-    @JsonProperty("  comment_count")
+    @JsonProperty("comment_count")
     private Integer commentCount;
 
-    @JsonProperty("  is_shared")
+    @JsonProperty("is_shared")
     private Boolean isShared;
 
-    @JsonProperty("  is_favorite")
+    @JsonProperty("is_favorite")
     private Boolean isFavorite;
 
     @JsonIgnore
-    @JsonProperty("  is_inbox_project")
+    @JsonProperty("is_inbox_project")
     private Boolean isInboxProject;
 
-    @JsonProperty("  is_team_inbox")
+    @JsonProperty("is_team_inbox")
     private Boolean isTeamInbox;
 
     private String url;
 
-    @JsonProperty("  view_style")
+    @JsonProperty("view_style")
     private String viewStyle;
 }

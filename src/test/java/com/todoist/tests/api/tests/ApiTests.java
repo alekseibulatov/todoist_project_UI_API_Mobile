@@ -1,6 +1,7 @@
 package com.todoist.tests.api.tests;
 
 import com.todoist.tests.api.models.CreateNewProjectModel;
+import com.todoist.tests.api.models.CreateNewTaskToProject;
 import com.todoist.tests.api.models.ListResponseAllProjectsModel;
 import com.todoist.tests.api.models.ProjectsModel;
 import lombok.SneakyThrows;
@@ -56,6 +57,7 @@ public class ApiTests {
                 .as(ProjectsModel.class);
 
         assertThat(newProject.getName(), is("QA.GURU"));
+
         assertThat(newProject.getOrder(), is(7));
     }
 
@@ -69,5 +71,24 @@ public class ApiTests {
                 .delete("/projects/2309199795")
                 .then()
                 .spec(responseSpecification(204));
+    }
+
+    @Test
+    @Tag("api")
+    @DisplayName("Добавление новой задачи в проект 'TestProject'")
+    public void addTaskToProject() {
+        CreateNewTaskToProject createNewTaskToProject = new CreateNewTaskToProject();
+        createNewTaskToProject.setContent("Тестовая задача");
+        createNewTaskToProject.setProjectId("2309196479");
+
+        given(loginRequestSpec)
+                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                .body(createNewTaskToProject)
+                .when()
+                .post("/tasks")
+                .then()
+                .spec(responseSpecification(200))
+                .body("content", is("Тестовая задача"));
+
     }
 }
