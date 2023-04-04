@@ -116,6 +116,6 @@ public class ApiTests {
                 .when()
                 .post("/tasks/" + projectsModelTask.getId() + "/close")
                 .then()
-                .spec(responseSpecification(200));
+                .spec(responseSpecification(204));
     }
 }
