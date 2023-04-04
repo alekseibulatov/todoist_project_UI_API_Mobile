@@ -91,4 +91,29 @@ public class ApiTests {
                 .body("content", is("Тестовая задача"));
 
     }
+
+    @Test
+    public void closingTaskInProject() {
+        CreateNewTaskToProject createNewTaskToProject = new CreateNewTaskToProject();
+        createNewTaskToProject.setContent("Тестовая задача для удаления");
+        createNewTaskToProject.setProjectId("2309196479");
+
+        ProjectsModel projectsModelTask = given(loginRequestSpec)
+                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                .body(createNewTaskToProject)
+                .when()
+                .post("/tasks")
+                .then()
+                .spec(responseSpecification(200))
+                .body("content", is("Тестовая задача для удаления"))
+                .extract().as(ProjectsModel.class);
+
+
+        given(loginRequestSpec)
+                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                .when()
+                .post("/tasks/" + projectsModelTask.getId() + "/close")
+                .then()
+                .spec(responseSpecification(200));
+    }
 }
