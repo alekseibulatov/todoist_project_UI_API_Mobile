@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.todoist.tests.api.specs.LoginSpecs.loginRequestSpec;
 import static com.todoist.tests.api.specs.LoginSpecs.responseSpecification;
+import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -102,26 +103,32 @@ public class ApiTests {
     @Tag("api")
     @DisplayName("Удаление новой задачи в проект 'TestProject'")
     public void closingTaskInProject() {
-        CreateNewTaskToProject createNewTaskToProject = new CreateNewTaskToProject();
-        createNewTaskToProject.setContent("Тестовая задача для удаления");
-        createNewTaskToProject.setProjectId("2309196479");
 
-        ProjectsModel projectsModelTask = given(loginRequestSpec)
-                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
-                .body(createNewTaskToProject)
-                .when()
-                .post("/tasks")
-                .then()
-                .spec(responseSpecification(200))
-                .body("content", is("Тестовая задача для удаления"))
-                .extract().as(ProjectsModel.class);
+        step("", () -> {
+            CreateNewTaskToProject createNewTaskToProject = new CreateNewTaskToProject();
+            createNewTaskToProject.setContent("Тестовая задача для удаления");
+            createNewTaskToProject.setProjectId("2309196479");
 
+            step("", () -> {
+                ProjectsModel projectsModelTask = given(loginRequestSpec)
+                        .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                        .body(createNewTaskToProject)
+                        .when()
+                        .post("/tasks")
+                        .then()
+                        .spec(responseSpecification(200))
+                        .body("content", is("Тестовая задача для удаления"))
+                        .extract().as(ProjectsModel.class);
 
-        given(loginRequestSpec)
-                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
-                .when()
-                .post("/tasks/" + projectsModelTask.getId() + "/close")
-                .then()
-                .spec(responseSpecification(204));
+                step("", () -> {
+                    given(loginRequestSpec)
+                            .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                            .when()
+                            .post("/tasks/" + projectsModelTask.getId() + "/close")
+                            .then()
+                            .spec(responseSpecification(204));
+                });
+            });
+        });
     }
 }
