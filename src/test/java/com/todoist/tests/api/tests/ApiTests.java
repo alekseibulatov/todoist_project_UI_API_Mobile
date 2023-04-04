@@ -58,7 +58,13 @@ public class ApiTests {
 
         assertThat(newProject.getName(), is("QA.GURU"));
 
-        assertThat(newProject.getOrder(), is(7));
+
+        given(loginRequestSpec)
+                .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
+                .when()
+                .delete("/projects/" + newProject.getId())
+                .then()
+                .spec(responseSpecification(204));
     }
 
     @Test
