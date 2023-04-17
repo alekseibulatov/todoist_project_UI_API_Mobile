@@ -2,9 +2,9 @@ package com.todoist.tests.web.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.todoist.config.CredentialsConfig;
-import com.todoist.config.WebDriverProvider;
-import com.todoist.helpers.Attach;
+import com.todoist.tests.web.config.CredentialsConfig;
+import com.todoist.tests.web.config.WebDriverProvider;
+import com.todoist.tests.web.helpers.Attach;
 import com.todoist.tests.web.pages.LoginPage;
 import com.todoist.tests.web.pages.MainPage;
 import com.todoist.tests.web.pages.SignupPage;

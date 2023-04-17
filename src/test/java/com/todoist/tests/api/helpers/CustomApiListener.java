@@ -1,4 +1,4 @@
-package com.todoist.helpers;
+package com.todoist.tests.api.helpers;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 

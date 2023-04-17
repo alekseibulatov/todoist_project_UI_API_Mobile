@@ -1,4 +1,4 @@
-package com.todoist.helpers;
+package com.todoist.tests.web.helpers;
 
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;

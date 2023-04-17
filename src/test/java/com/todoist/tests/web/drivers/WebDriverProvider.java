@@ -1,4 +1,4 @@
-package com.todoist.config;
+package com.todoist.tests.web.drivers;
 
 
 import com.codeborne.selenide.Configuration;
