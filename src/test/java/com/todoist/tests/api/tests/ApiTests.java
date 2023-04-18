@@ -36,7 +36,7 @@ public class ApiTests {
                         .response()
                         .as(ListResponseAllProjectsModel.class));
 
-        step("Проверяем, что проектов три штуки", () -> {
+        step("Проверяем, что число проектов - три", () -> {
                     assertThat(authorization.getArrayList().size(), is(2));
         });
     }

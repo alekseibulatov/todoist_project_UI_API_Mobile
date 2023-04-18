@@ -27,6 +27,5 @@ public class LoginSpecs {
                 .log(ALL)
                 .expectStatusCode(status)
                 .build();
-
     }
 }
