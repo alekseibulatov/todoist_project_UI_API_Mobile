@@ -23,7 +23,7 @@ public class ApiTests {
     @Test
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.BLOCKER)
-    @Tag("api")
+    @Tag("Api")
     @DisplayName("Получение всех проектов пользователя")
     public void receptionAllProjectTest() {
         ListResponseAllProjectsModel authorization = step("Получаем все проекты пользователя", () ->
@@ -45,7 +45,7 @@ public class ApiTests {
     @Test
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("api")
+    @Tag("Api")
     @DisplayName("Добавление нового проекта QA.GURU в проекты")
     public void addNewProjectTest() {
         CreateNewProjectModel newProjectModel = new CreateNewProjectModel();
@@ -76,7 +76,7 @@ public class ApiTests {
     @Test
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.MINOR)
-    @Tag("api")
+    @Tag("Api")
     @DisplayName("Удаление   проекта Shopping из списка проектов")
     public void deleteProjectTest() {
         CreateNewProjectModel newProjectModel = new CreateNewProjectModel();
@@ -107,7 +107,7 @@ public class ApiTests {
     @Test
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.BLOCKER)
-    @Tag("api")
+    @Tag("Api")
     @DisplayName("Добавление новой задачи в проект 'TestProject'")
     public void addTaskToProject() {
         CreateNewTaskToProject createNewTaskToProject = new CreateNewTaskToProject();
@@ -132,7 +132,7 @@ public class ApiTests {
     @Test
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.MINOR)
-    @Tag("api")
+    @Tag("Api")
     @DisplayName("Удаление новой задачи в проект 'TestProject'")
     public void closingTaskInProject() {
 

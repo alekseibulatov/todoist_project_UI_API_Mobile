@@ -17,7 +17,7 @@ public class MainMenuTests extends TestBase {
 
     @Test
     @Description("Открываем главную страницу")
-    @Tag("mobile")
+    @Tag("Mobile")
     public void testMainPage() {
         mainPage.clickToButton();
     }

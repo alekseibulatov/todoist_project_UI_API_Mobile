@@ -16,14 +16,13 @@ import org.junit.jupiter.api.Test;
 
 @Feature("MainPage")
 @DisplayName("Тестирование главной страницы")
-@Tag("Web")
 public class MainPageTests extends WebTestBase {
 
     @Test
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Главная страница сайта загружена ")
-    @Tags ({@Tag("ui"), @Tag("smoke")})
+    @Tags ({@Tag("Web"), @Tag("smoke")})
     void currentOpenMainPageTest() {
         mainPage.openPage()
                 .verificationMainPage();
@@ -34,7 +33,7 @@ public class MainPageTests extends WebTestBase {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("В шапке на главной странице отображаются ссылки 'Возможности, Шаблоны, Для команд," +
             "Ресурсы, Тарифы, Войти, Начать бесплатно'")
-    @Tags ({@Tag("ui"), @Tag("smoke")})
+    @Tags ({@Tag("Web"), @Tag("smoke")})
     void verificationHeaderMainPageTest() {
         mainPage.openPage()
                 .verificationHeaderMainPage();
@@ -44,7 +43,7 @@ public class MainPageTests extends WebTestBase {
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("При клике на 'Тарифы' происходит переход на страницу с тарифами")
-    @Tags ({@Tag("ui"), @Tag("smoke")})
+    @Tags ({@Tag("Web"), @Tag("smoke")})
     void openPricingPageWhenClickPriceTest() {
         mainPage.openPage()
                 .openPricingPage();
@@ -54,7 +53,7 @@ public class MainPageTests extends WebTestBase {
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("При клике на 'Войти' переходим на страницу Войти")
-    @Tags ({@Tag("ui"), @Tag("smoke")})
+    @Tags ({@Tag("Web"), @Tag("smoke")})
     void openLoginPageWhenClickLoginTest() {
         mainPage.openPage()
                 .openLoginPage();
@@ -66,7 +65,7 @@ public class MainPageTests extends WebTestBase {
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.MINOR)
     @DisplayName("При клике на 'Начать бесплатно' переходим на страницу Регистрации")
-    @Tags ({@Tag("ui"), @Tag("smoke")})
+    @Tags ({@Tag("Web"), @Tag("smoke")})
     void openSignupPageWhenClickSignupTest() {
         mainPage.openPage()
                 .openSignupPage();

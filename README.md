@@ -73,17 +73,17 @@
 ## <a name="GradleCommand">Команды для Gradle</a>
 Для запуска локально и в Jenkins используется следующая команда::
 ```bash
-gradle clean test -Dtag=<tag> 
+gradle clean test -Dtag=<TAG> 
 ```
 Дополнительные параметры:
 > `-Denv=local` `-Denv=remote` - запуск локально или удаленно для selenoid\
 > `-DdeviceHost=android` `-DdeviceHost=emulator` - запуск мобильных тестов в browserstack или на эмуляторе\
 
 
-`tag` - теги для запуска выполнения тестов:
->- *api*
->- *ui*
->- *mobile*
+`TAG` - теги для запуска выполнения тестов:
+>- *Api*
+>- *Web*
+>- *Mobile*
 
 
 

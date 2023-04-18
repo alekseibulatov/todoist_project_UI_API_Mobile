@@ -22,7 +22,7 @@ public class LoginPageTest extends WebTestBase {
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Авторизация на сайте  с корректным логином и паролем")
-    @Tags({@Tag("ui"), @Tag("smoke")})
+    @Tags({@Tag("Web"), @Tag("smoke")})
     void successLoginOnLoginPageTest() {
         loginPage.openLoginPage()
                 .verificationOpenLoginPage()
@@ -42,7 +42,7 @@ public class LoginPageTest extends WebTestBase {
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Авторизация на сайте без ввода логина и пароля")
-    @Tags({@Tag("ui"), @Tag("smoke")})
+    @Tags({@Tag("Web"), @Tag("smoke")})
     void unsuccessfulLoginOnLoginPageTest() {
         loginPage.openLoginPage()
                 .verificationOpenLoginPage()
@@ -56,7 +56,7 @@ public class LoginPageTest extends WebTestBase {
     @Owner("alekseibulatov")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка перехода по ссылке Гугл на странице авторизации")
-    @Tags({@Tag("ui"), @Tag("smoke")})
+    @Tags({@Tag("Web"), @Tag("smoke")})
     void switchToGoogleTest() {
         loginPage.openLoginPage()
                 .clickToGoogleButton()
