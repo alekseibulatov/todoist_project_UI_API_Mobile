@@ -1,4 +1,4 @@
-package com.todoist.tests.web.config;
+package com.todoist.tests.web.configWeb;
 
 
 import org.aeonbits.owner.Config;

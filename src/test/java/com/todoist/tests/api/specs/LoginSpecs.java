@@ -17,6 +17,7 @@ public class LoginSpecs {
             .log().body()
             .filter(withCustomTemplates())
             .contentType(JSON)
+            .header("Authorization", "Bearer 9eb84cdd345a55ddf0ba278f893512e30670b4d1")
             .baseUri("https://api.todoist.com")
             .basePath("/rest/v2");
 

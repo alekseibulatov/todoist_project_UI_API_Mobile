@@ -2,6 +2,7 @@ package com.todoist.tests.web.drivers;
 
 
 import com.codeborne.selenide.Configuration;
+import com.todoist.tests.web.configWeb.WebDriverConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
