@@ -35,6 +35,7 @@ tasks.withType(Test) {
         if (System.getProperty("tag") != null && !System.getProperty("tag").isEmpty()) {
             includeTags System.getProperty("tag")
         }
+    }
 
 
         testLogging {
