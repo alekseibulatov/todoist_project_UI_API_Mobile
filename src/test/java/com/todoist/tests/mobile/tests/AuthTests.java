@@ -1,14 +1,19 @@
 package com.todoist.tests.mobile.tests;
 
+import com.todoist.tests.mobile.pages.AuthPage;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class AuthTests extends TestBase {
+
+    private static AuthPage authPage;
+
+    @BeforeAll
+    public static void init() {
+        authPage = new AuthPage();
+    }
 
     @Test
     @Owner("alekseibulatov")

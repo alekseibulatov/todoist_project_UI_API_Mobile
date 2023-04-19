@@ -1,7 +1,5 @@
 package com.todoist.tests.mobile.pages;
 
-import io.appium.java_client.AppiumBy;
-
 import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.id;
 
@@ -17,7 +15,7 @@ public class AuthPage {
         return this;
     }
 
-      public AuthPage setValueEmailGoogle() {
+    public AuthPage setValueEmailGoogle() {
         $(id("email")).click();
         $(id("email")).setValue("search23search@gmail.com");
 

@@ -1,10 +1,7 @@
 package com.todoist.tests.mobile.driver;
 
 import com.codeborne.selenide.WebDriverProvider;
-import com.todoist.tests.mobile.config.AuthConfig;
-import com.todoist.tests.mobile.config.BrowserstackConfig;
 import lombok.SneakyThrows;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -14,9 +11,10 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static com.todoist.tests.mobile.config.ConfigReader.authConfig;
+import static com.todoist.tests.mobile.config.ConfigReader.browserstackConfig;
+
 public class BrowserstackDriver implements WebDriverProvider {
-    static AuthConfig authConfig = ConfigFactory.create(AuthConfig.class);
-    static BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
 
     @SneakyThrows
     @Nonnull
