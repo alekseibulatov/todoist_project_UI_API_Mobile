@@ -6,6 +6,8 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.todoist.tests.mobile.driver.BrowserstackDriver;
 import com.todoist.tests.mobile.driver.MobileDriver;
 import com.todoist.tests.mobile.helpers.Attach;
+import com.todoist.tests.mobile.pages.AuthPage;
+import com.todoist.tests.mobile.pages.MainPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,6 +18,9 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
+
+    MainPage mainPage = new MainPage();
+    AuthPage authPage = new AuthPage();
 
 
     @BeforeAll
