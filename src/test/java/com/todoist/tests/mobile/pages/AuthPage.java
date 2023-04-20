@@ -1,7 +1,10 @@
 package com.todoist.tests.mobile.pages;
 
+import io.appium.java_client.AppiumBy;
+
 import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.id;
+import static org.openqa.selenium.By.xpath;
 
 public class AuthPage {
 
@@ -16,22 +19,30 @@ public class AuthPage {
     }
 
     public AuthPage setValueEmailGoogle() {
-        $(id("email")).click();
-        $(id("email")).setValue("search23search@gmail.com");
+        $(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+                "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/" +
+                "androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/" +
+                "android.widget.ScrollView/android.widget.EditText[1]")).sendKeys("search23search@gmail.com");
 
         return this;
     }
 
 
     public AuthPage setValuePasswordGoogle() {
-        $(id("password")).click();
-        $(id("password")).setValue("123!45678");
+        $(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+                "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/" +
+                "androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/" +
+                "android.widget.ScrollView/android.widget.EditText[2]")).sendKeys("123!45678");
+
         return this;
 
     }
 
     public AuthPage clickToSLoginButton() {
-        $(id("auth_button_tag")).click();
+        $(xpath("hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+                "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/" +
+                "androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/" +
+                "android.widget.ScrollView/android.view.View[1]")).click();
 
         return this;
     }

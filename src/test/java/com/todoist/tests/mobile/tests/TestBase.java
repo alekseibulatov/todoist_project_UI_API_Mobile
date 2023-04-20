@@ -37,6 +37,7 @@ public class TestBase {
         Configuration.timeout = 30000;
         Configuration.pageLoadTimeout = 30000;
         Configuration.browserSize = null;
+
     }
 
     @BeforeEach

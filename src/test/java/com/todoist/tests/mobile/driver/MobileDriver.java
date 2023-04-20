@@ -1,6 +1,5 @@
 package com.todoist.tests.mobile.driver;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
 import com.todoist.tests.mobile.helpers.ApkInfoHelper;
 import io.appium.java_client.android.AndroidDriver;
@@ -46,7 +45,7 @@ public class MobileDriver implements WebDriverProvider {
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
-        Configuration.browserSize = null;
+
         initPackageAndActivity();
         UiAutomator2Options options = new UiAutomator2Options();
         options.merge(capabilities);
@@ -58,6 +57,7 @@ public class MobileDriver implements WebDriverProvider {
                 .setApp(getAppPath())
                 .setAppPackage(APP_PACKAGE)
                 .setAppActivity(APP_ACTIVITY);
+
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }

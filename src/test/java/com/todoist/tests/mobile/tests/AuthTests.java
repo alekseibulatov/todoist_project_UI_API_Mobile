@@ -24,8 +24,9 @@ public class AuthTests extends TestBase {
         authPage.clickToButtonMoreOptions()
                 .clickToButtonLoginWithEmail()
                 .setValueEmailGoogle()
-                .setValueEmailGoogle()
+                .setValuePasswordGoogle()
                 .clickToSLoginButton();
+
 
     }
 }
