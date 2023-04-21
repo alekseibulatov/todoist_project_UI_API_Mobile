@@ -36,7 +36,7 @@ public class TodayPage {
         return this;
     }
 
-    @Step("Закрываем всплывающее окно с предложением сенить часовой пояс")
+    @Step("Закрываем всплывающее окно с предложением сменить часовой пояс")
     public TodayPage closeTab() {
         if (captionHeader.exists()) {
             captionButtonNoChange.click();

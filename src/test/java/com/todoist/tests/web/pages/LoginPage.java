@@ -50,7 +50,7 @@ public class LoginPage {
     @Step("Кликаем по кнопке Войти на странице авторизации")
     public LoginPage clickToButtonLogin() {
         buttonLogin.click();
-        Configuration.timeout = 15000;
+        sleep(15000);
 
         return this;
     }
