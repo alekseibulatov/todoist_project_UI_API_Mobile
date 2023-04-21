@@ -1,5 +1,6 @@
 package com.todoist.tests.web.pages;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -49,7 +50,7 @@ public class LoginPage {
     @Step("Кликаем по кнопке Войти на странице авторизации")
     public LoginPage clickToButtonLogin() {
         buttonLogin.click();
-        sleep(15000);
+        Configuration.timeout = 15000;
 
         return this;
     }
