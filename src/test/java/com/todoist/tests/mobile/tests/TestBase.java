@@ -8,7 +8,9 @@ import com.todoist.tests.mobile.driver.MobileDriver;
 import com.todoist.tests.mobile.helpers.Attach;
 import com.todoist.tests.mobile.pages.AuthPage;
 import com.todoist.tests.mobile.pages.MainPage;
+import com.todoist.tests.web.configWeb.CredentialsConfig;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,6 +24,8 @@ public class TestBase {
     MainPage mainPage = new MainPage();
     AuthPage authPage = new AuthPage();
 
+
+    public static CredentialsConfig credentialsConfig = ConfigFactory.create(CredentialsConfig.class);
 
     @BeforeAll
     static void beforeAll() {

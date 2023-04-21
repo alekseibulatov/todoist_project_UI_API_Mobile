@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.todoist.tests.mobile.tests.TestBase.credentialsConfig;
 import static io.appium.java_client.AppiumBy.id;
 import static org.openqa.selenium.By.xpath;
 
@@ -40,14 +41,14 @@ public class AuthPage {
 
     @Step("Вводим  email")
     public AuthPage setValueEmailGoogle() {
-        fieldEmail.sendKeys("search23search@gmail.com");
+        fieldEmail.sendKeys(credentialsConfig.login());
 
         return this;
     }
 
     @Step("Вводим пароль")
     public AuthPage setValuePasswordGoogle() {
-        fieldPassword.sendKeys("123!45678");
+        fieldPassword.sendKeys(credentialsConfig.password());
 
         return this;
 
