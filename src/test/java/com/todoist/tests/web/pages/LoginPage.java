@@ -1,6 +1,5 @@
 package com.todoist.tests.web.pages;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
